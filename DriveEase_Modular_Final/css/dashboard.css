@@ -1,32 +1,563 @@
-/* Dashboard-only colours and components. */
+/* Dashboard-only colours and components */
+
+/* Statistics */
+
 .stats-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1.5rem;
-  margin-bottom: 1.8rem;
+    display: grid;
+
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+
+    gap: 1.5rem;
+
+    margin-bottom: 1.8rem;
 }
 
 .stat-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 1.2rem;
-  padding: 1.7rem;
+    min-width: 0;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 1.2rem;
+
+    padding: 1.7rem;
+
+    box-shadow:
+        0 3px 10px rgba(15, 23, 42, 0.03);
 }
 
 .stat-icon {
-  width: 4rem;
-  height: 4rem;
-  border-radius: .9rem;
-  display: grid;
-  place-items: center;
-  margin-bottom: 1rem;
-  font-size: 1.8rem;
+    width: 4rem;
+    height: 4rem;
+
+    border-radius: 0.9rem;
+
+    display: grid;
+
+    place-items: center;
+
+    margin-bottom: 1rem;
+
+    font-size: 1.8rem;
 }
 
-.stat-card:nth-child(1) .stat-icon { background: #eff6ff; color: #1d4ed8; }
-.stat-card:nth-child(2) .stat-icon { background: #ecfdf5; color: #15803d; }
-.stat-card:nth-child(3) .stat-icon { background: #fff7ed; color: #c2410c; }
-.stat-card:nth-child(4) .stat-icon { background: #f5f3ff; color: #6d28d9; }
-.stat-card:nth-child(5) .stat-icon { background: #fef2f2; color: #b91c1c; }
+.stat-card:nth-child(1) .stat-icon {
+    background: #eff6ff;
+    color: #1d4ed8;
+}
 
-.st
+.stat-card:nth-child(2) .stat-icon {
+    background: #ecfdf5;
+    color: #15803d;
+}
+
+.stat-card:nth-child(3) .stat-icon {
+    background: #fff7ed;
+    color: #c2410c;
+}
+
+.stat-card:nth-child(4) .stat-icon {
+    background: #f5f3ff;
+    color: #6d28d9;
+}
+
+.stat-card:nth-child(5) .stat-icon {
+    background: #fef2f2;
+    color: #b91c1c;
+}
+
+.stat-label {
+    display: block;
+
+    color: #64748b;
+
+    font-size: 1.15rem;
+
+    margin-bottom: 0.4rem;
+}
+
+.stat-value {
+    display: block;
+
+    color: #0f172a;
+
+    font-size: 2.5rem;
+
+    font-weight: 800;
+
+    line-height: 1.1;
+
+    margin-bottom: 0.4rem;
+}
+
+.stat-note {
+    display: block;
+
+    color: #64748b;
+
+    font-size: 1rem;
+}
+
+/* Main dashboard sections */
+
+.dashboard-grid {
+    display: grid;
+
+    grid-template-columns: 2fr 1fr;
+
+    gap: 1.8rem;
+
+    margin-bottom: 1.8rem;
+}
+
+.dashboard-grid.lower-grid {
+    grid-template-columns: 1fr 1fr;
+}
+
+.dashboard-grid .panel {
+    padding: 2.4rem;
+}
+
+/* Panel headers */
+
+.panel-header {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 1.5rem;
+
+    margin-bottom: 1.8rem;
+}
+
+.panel-header h2 {
+    margin: 0;
+
+    color: #0f172a;
+
+    font-size: 1.8rem;
+}
+
+.panel-header p {
+    margin: 0.4rem 0 0;
+
+    color: #64748b;
+
+    font-size: 1.15rem;
+}
+
+/* Revenue chart */
+
+.revenue-panel {
+    min-width: 0;
+}
+
+.revenue-panel select {
+    border: 1px solid #dbe3ec;
+
+    background: #ffffff;
+
+    color: #334155;
+
+    border-radius: 0.7rem;
+
+    padding: 0.7rem 1rem;
+
+    font-size: 1.05rem;
+
+    outline: none;
+}
+
+.revenue-chart {
+    height: 30rem;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 1.2rem;
+
+    padding: 2rem 1rem 0;
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.revenue-bar {
+    flex: 1;
+
+    min-width: 2rem;
+
+    max-width: 6rem;
+
+    height: var(--bar-height);
+
+    background: linear-gradient(
+        to top,
+        #1f6feb,
+        #60a5fa
+    );
+
+    border-radius: 0.7rem 0.7rem 0 0;
+
+    position: relative;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.revenue-bar:hover {
+    transform: translateY(-4px);
+
+    opacity: 0.85;
+}
+
+.revenue-bar strong {
+    position: absolute;
+
+    top: -2.5rem;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    white-space: nowrap;
+
+    color: #334155;
+
+    font-size: 1rem;
+}
+
+.revenue-bar span {
+    position: absolute;
+
+    bottom: -2.5rem;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: #64748b;
+
+    font-size: 1rem;
+}
+
+/* Fleet availability */
+
+.availability-panel {
+    min-height: 30rem;
+}
+
+#fleet-availability {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1rem;
+}
+
+.availability-item {
+    padding: 1.2rem;
+
+    border-radius: 0.9rem;
+
+    background: #f8fafc;
+
+    border: 1px solid #edf1f5;
+}
+
+.availability-label {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 0.8rem;
+}
+
+.availability-label span {
+    color: #334155;
+
+    font-size: 1.1rem;
+}
+
+.availability-label strong {
+    color: #0f172a;
+
+    font-size: 1.3rem;
+}
+
+.availability-track {
+    height: 0.7rem;
+
+    background: #e2e8f0;
+
+    border-radius: 999px;
+
+    overflow: hidden;
+}
+
+.availability-fill {
+    height: 100%;
+
+    border-radius: 999px;
+
+    transition: width 0.3s ease;
+}
+
+.availability-fill.available {
+    background: #22c55e;
+}
+
+.availability-fill.rented {
+    background: #f59e0b;
+}
+
+.availability-fill.maintenance {
+    background: #ef4444;
+}
+
+/* Pending approvals */
+
+.pending-item {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 1.5rem;
+
+    padding: 1.3rem 0;
+
+    border-bottom: 1px solid #eef2f6;
+}
+
+.pending-item:last-child {
+    border-bottom: 0;
+}
+
+.pending-item > div:first-child {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0.4rem;
+
+    min-width: 0;
+}
+
+.pending-item strong {
+    color: #0f172a;
+
+    font-size: 1.15rem;
+}
+
+.pending-item span {
+    color: #64748b;
+
+    font-size: 1rem;
+}
+
+.pending-actions {
+    display: flex;
+
+    gap: 0.7rem;
+
+    flex-shrink: 0;
+}
+
+.pending-actions button {
+    border: 0;
+
+    border-radius: 0.6rem;
+
+    padding: 0.7rem 1rem;
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.pending-actions .approve {
+    background: #dcfce7;
+
+    color: #15803d;
+}
+
+.pending-actions .approve:hover {
+    background: #bbf7d0;
+}
+
+.pending-actions .reject {
+    background: #fee2e2;
+
+    color: #b91c1c;
+}
+
+.pending-actions .reject:hover {
+    background: #fecaca;
+}
+
+/* Quick actions */
+
+.quick-actions {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 1rem;
+}
+
+.quick-actions button,
+.quick-actions a {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 4.8rem;
+
+    padding: 1rem;
+
+    border: 1px solid #dbe3ec;
+
+    border-radius: 0.8rem;
+
+    background: #f8fafc;
+
+    color: #334155;
+
+    font-size: 1.05rem;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.quick-actions button:hover,
+.quick-actions a:hover {
+    border-color: #1f6feb;
+
+    background: #eff6ff;
+
+    color: #1f6feb;
+}
+
+/* Recent reservations */
+
+.recent-panel {
+    margin-bottom: 2rem;
+
+    padding: 2.4rem;
+}
+
+.recent-panel table {
+    width: 100%;
+}
+
+.recent-panel th {
+    padding: 1.1rem;
+
+    text-align: left;
+
+    color: #64748b;
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.recent-panel td {
+    padding: 1.1rem;
+
+    color: #334155;
+
+    font-size: 1.05rem;
+
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.recent-panel tr:last-child td {
+    border-bottom: 0;
+}
+
+.action-button {
+    border: 1px solid #dbe3ec;
+
+    background: #ffffff;
+
+    color: #334155;
+
+    border-radius: 0.7rem;
+
+    padding: 0.6rem 0.9rem;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+}
+
+.action-button:hover {
+    border-color: #1f6feb;
+
+    color: #1f6feb;
+}
+
+/* Responsive */
+
+@media (max-width: 1200px) {
+
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-grid.lower-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quick-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .panel-header {
+        flex-direction: column;
+    }
+
+    .pending-item {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .revenue-chart {
+        gap: 0.5rem;
+    }
+}

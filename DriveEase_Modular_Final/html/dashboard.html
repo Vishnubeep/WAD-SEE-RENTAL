@@ -1,71 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DriveEase | Dashboard</title>
-  <link rel="stylesheet" href="../css/base.css">
-  <link rel="stylesheet" href="../css/layout.css">
-  <link rel="stylesheet" href="../css/dashboard.css">
-  <link rel="stylesheet" href="../css/responsive.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DriveEase | Dashboard</title>
+
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/responsive.css">
 </head>
+
 <body data-page="dashboard">
-  <div id="app-header"></div>
-  <div class="app-shell">
-    <div id="app-sidebar"></div>
-    <main class="main-content">
-      <section class="page-header">
-        <div><span class="eyebrow">OVERVIEW</span><h1>Business Dashboard</h1><p>Track your fleet, rentals, customers and revenue.</p></div>
-        <button class="btn primary" data-action="new-reservation">+ New Reservation</button>
-      </section>
 
-      <section class="stats-grid" id="dashboard-stats"></section>
+    <div id="app-header"></div>
 
-      <section class="dashboard-grid">
-        <article class="panel revenue-panel">
-          <div class="panel-header">
-            <div><h2>Revenue Overview</h2><p>Completed rental revenue</p></div>
-            <select id="revenue-range"><option>Last 7 days</option><option>Last 30 days</option></select>
-          </div>
-          <div class="revenue-chart" id="revenue-chart"></div>
-        </article>
+    <div class="app-shell">
 
-        <article class="panel availability-panel">
-          <div class="panel-header"><div><h2>Fleet Availability</h2><p>Current vehicle status</p></div></div>
-          <div id="fleet-availability"></div>
-        </article>
-      </section>
+        <div id="app-sidebar"></div>
 
-      <section class="dashboard-grid lower-grid">
-        <article class="panel">
-          <div class="panel-header"><div><h2>Pending Approvals</h2><p>Reservations waiting for staff action</p></div><a class="panel-link" href="reservations.html">View all →</a></div>
-          <div id="pending-approvals"></div>
-        </article>
+        <main class="main-content">
 
-        <article class="panel">
-          <div class="panel-header"><div><h2>Quick Actions</h2><p>Common business operations</p></div></div>
-          <div class="quick-actions">
-            <button data-action="new-vehicle">＋ Add Vehicle</button>
-            <button data-action="new-customer">＋ Add Customer</button>
-            <button data-action="new-reservation">＋ Reservation</button>
-            <a href="returns.html">↩ Process Return</a>
-          </div>
-        </article>
-      </section>
+            <section class="page-header">
 
-      <article class="panel recent-panel">
-        <div class="panel-header"><div><h2>Recent Reservations</h2><p>Latest rental activity</p></div><a class="panel-link" href="reservations.html">Manage →</a></div>
-        <div class="table-wrap"><table><thead><tr><th>ID</th><th>Customer</th><th>Vehicle</th><th>Dates</th><th>Amount</th><th>Status</th><th></th></tr></thead><tbody id="recent-reservations"></tbody></table></div>
-      </article>
-    </main>
-  </div>
-  <div id="modal-root"></div>
-  <div id="toast-root"></div>
-  <script src="../js/data.js"></script>
-  <script src="../js/storage.js"></script>
-  <script src="../js/helpers.js"></script>
-  <script src="../js/layout.js"></script>
-  <script src="../js/modals.js"></script>
-  <script src="../js/dashboard.js"></script>
+                <div>
+                    <span class="eyebrow">
+                        OVERVIEW
+                    </span>
+
+                    <h1>
+                        Business Dashboard
+                    </h1>
+
+                    <p>
+                        Track your fleet, rentals, customers and revenue.
+                    </p>
+                </div>
+
+                <button
+                    class="btn primary"
+                    data-action="new-reservation">
+                    + New Reservation
+                </button>
+
+            </section>
+
+            <section
+                class="stats-grid"
+                id="dashboard-stats">
+            </section>
+
+            <section class="dashboard-grid">
+
+                <article class="panel revenue-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h2>
+                                Revenue Overview
+                            </h2>
+
+                            <p>
+                                Completed rental revenue
+                            </p>
+                        </div>
+
+                        <select id="revenue-range">
+                            <option>Last 7 days</option>
+                            <option>Last 30 days</option>
+                        </select>
+
+                    </div>
+
+                    <div
+                        class="revenue-chart"
+                        id="revenue-chart">
+                    </div>
+
+                </article>
+
+                <article class="panel availability-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h2>
+                                Fleet Availability
+                            </h2>
+
+                            <p>
+                                Current vehicle status
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div id="fleet-availability">
+                    </div>
+
+                </article>
+
+            </section>
+
+            <section class="dashboard-grid lower-grid">
+
+                <article class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h2>
+                                Pending Approvals
+                            </h2>
+
+                            <p>
+                                Reservations waiting for staff action
+                            </p>
+                        </div>
+
+                        <a
+                            class="panel-link"
+                            href="reservations.html">
+                            View all →
+                        </a>
+
+                    </div>
+
+                    <div id="pending-approvals">
+                    </div>
+
+                </article>
+
+                <article class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h2>
+                                Quick Actions
+                            </h2>
+
+                            <p>
+                                Common business operations
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="quick-actions">
+
+                        <button data-action="new-vehicle">
+                            ＋ Add Vehicle
+                        </button>
+
+                        <button data-action="new-customer">
+                            ＋ Add Customer
+                        </button>
+
+                        <button data-action="new-reservation">
+                            ＋ Reservation
+                        </button>
+
+                        <a href="returns.html">
+                            ↩ Process Return
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+            <article class="panel recent-panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h2>
+                            Recent Reservations
+                        </h2>
+
+                        <p>
+                            Latest rental activity
+                        </p>
+                    </div>
+
+                    <a
+                        class="panel-link"
+                        href="reservations.html">
+                        Manage →
+                    </a>
+
+                </div>
+
+                <div class="table-wrap">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>ID</th>
+                                <th>Customer</th>
+                                <th>Vehicle</th>
+                                <th>Dates</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="recent-reservations">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </article>
+
+        </main>
+
+    </div>
+
+    <div id="modal-root"></div>
+
+    <div id="toast-root"></div>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/helpers.js"></script>
+    <script src="../js/layout.js"></script>
+    <script src="../js/modals.js"></script>
+    <script src="../js/dashboard.js"></script>
+
 </body>
+
 </html>
