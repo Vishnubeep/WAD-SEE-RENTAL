@@ -18,7 +18,7 @@ function renderPayments() {
       <td>${customer(item.customerId).name}</td>
       <td>${item.method}</td>
       <td class="payment-amount">${money(item.amount)}</td>
-      <td>${formatDate(item.pickup)}</td>
+      <td>${formatDate(item.bookedOn || item.pickup)}</td>
       <td><span class="status ${item.payment === "Paid" ? "payment-paid" : "payment-pending"}">${item.payment}</span></td>
       <td>${item.payment === "Pending" ? `<button class="action-button" data-pay="${item.id}">Mark Paid</button>` : `<button class="action-button" data-receipt="${item.id}">Receipt</button>`}</td>
     </tr>

@@ -97,6 +97,11 @@ function renderRevenueChart() {
         date.setDate(today.getDate() - range + index + 1);
         return date;
     });
+    const getDateKey = date => [
+        date.getFullYear(),
+        String(date.getMonth() + 1).padStart(2, "0"),
+        String(date.getDate()).padStart(2, "0")
+    ].join("-");
     const revenueByDate = new Map();
 
     db.reservations
@@ -107,37 +112,32 @@ function renderRevenueChart() {
         });
 
     const values = days.map(date => {
-        const dateKey = [
-            date.getFullYear(),
-            String(date.getMonth() + 1).padStart(2, "0"),
-            String(date.getDate()).padStart(2, "0")
-        ].join("-");
-        return revenueByDate.get(dateKey) || 0;
+        return revenueByDate.get(getDateKey(date)) || 0;
     });
     const max = Math.max(...values, 1);
     const container = document.getElementById("revenue-chart");
+    const total = values.reduce((sum, value) => sum + value, 0);
+    const summary = document.getElementById("revenue-summary");
+    summary.textContent = `Completed rental revenue · ${money(total)} in the last ${range} days`;
+    container.style.setProperty("--bar-count", range);
 
     container.innerHTML = values
         .map((value, index) => {
             const date = days[index];
-            const dateLabel = date.toLocaleDateString("en-IN", {
-                day: "2-digit",
-                month: "short"
-            });
+            const dateKey = getDateKey(date);
+            const dateLabel = formatDate(dateKey);
             const label = range === 7
                 ? date.toLocaleDateString("en-IN", { weekday: "short" })
-                : index % 5 === 0 || index === range - 1 ? dateLabel : "";
+                : index % 5 === 0 || index === range - 1
+                    ? date.toLocaleDateString("en-IN", { day: "2-digit", month: "short" })
+                    : "";
             const height = value ? Math.max((value / max) * 100, 2) : 0;
 
             return `
                 <div
                     class="revenue-bar"
                     style="--bar-height: ${height}%"
-                    title="${formatDate([
-                        date.getFullYear(),
-                        String(date.getMonth() + 1).padStart(2, "0"),
-                        String(date.getDate()).padStart(2, "0")
-                    ].join("-"))}: ${money(value)}"
+                    title="${dateLabel}: ${money(value)}"
                     aria-label="${dateLabel}: ${money(value)}">
 
                     ${range === 7 ? `<strong>${money(value)}</strong>` : ""}

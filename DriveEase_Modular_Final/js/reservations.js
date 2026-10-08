@@ -40,6 +40,10 @@ function renderReservations() {
   document.querySelectorAll("[data-receipt]").forEach(button => button.addEventListener("click", () => openReceipt(button.dataset.receipt)));
 }
 
+document.querySelectorAll('[data-action="new-reservation"]').forEach(button => {
+  button.addEventListener("click", openReservation);
+});
+
 document.getElementById("reservation-search").addEventListener("input", renderReservations);
 document.getElementById("reservation-status").addEventListener("change", renderReservations);
 window.addEventListener("dataChanged", renderReservations);

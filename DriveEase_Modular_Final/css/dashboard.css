@@ -174,27 +174,27 @@
 .revenue-chart {
     height: 30rem;
 
-    display: flex;
+    display: grid;
 
-    align-items: flex-end;
+    grid-template-columns: repeat(var(--bar-count, 7), minmax(0, 1fr));
 
-    gap: 1.2rem;
+    align-items: end;
 
-    padding: 2rem 1rem 0;
+    gap: clamp(0.2rem, 0.5vw, 0.8rem);
+
+    padding: 3.2rem 1rem 3.5rem;
 
     border-bottom: 1px solid #e2e8f0;
 
-    overflow-x: auto;
+    overflow: hidden;
 }
 
 .revenue-bar {
-    flex: 1;
+    width: 100%;
 
-    min-width: 2rem;
+    min-width: 0;
 
-    max-width: 6rem;
-
-    height: var(--bar-height);
+    height: max(2px, var(--bar-height));
 
     background: linear-gradient(
         to top,

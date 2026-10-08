@@ -1,5 +1,11 @@
 /* Header, sidebar and page-level layout */
 
+#app-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
 .topbar {
     height: 7.2rem;
     background: #ffffff;
@@ -11,9 +17,7 @@
 
     padding: 0 3rem;
 
-    position: sticky;
-    top: 0;
-    z-index: 10;
+    position: relative;
 }
 
 .brand {

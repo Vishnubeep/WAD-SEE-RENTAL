@@ -627,6 +627,9 @@ function openReservation() {
 
                     id: `RES-${String(Date.now()).slice(-4)}`,
 
+                    bookedOn:
+                        todayInputDate(),
+
                     customerId:
                         form.get("customer"),
 

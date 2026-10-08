@@ -17,11 +17,11 @@ const DEFAULT_DATA = {
     { id: "C004", name: "Arjun Menon", phone: "+91 98765 11223", email: "arjun@gmail.com", licence: "KA01 20251234" }
   ],
   reservations: [
-    { id: "RES-1004", customerId: "C001", vehicleId: "V001", pickup: "2026-10-09", returnDate: "2026-10-12", amount: 12600, payment: "Paid", method: "UPI", status: "Active", lateFee: 0, damageFee: 0 },
-    { id: "RES-1003", customerId: "C002", vehicleId: "V003", pickup: "2026-10-02", returnDate: "2026-10-05", amount: 5400, payment: "Paid", method: "Card", status: "Returned", lateFee: 0, damageFee: 0 },
-    { id: "RES-1002", customerId: "C003", vehicleId: "V002", pickup: "2026-10-07", returnDate: "2026-10-10", amount: 6600, payment: "Paid", method: "UPI", status: "Returned", lateFee: 0, damageFee: 0 },
-    { id: "RES-1001", customerId: "C004", vehicleId: "V006", pickup: "2026-10-08", returnDate: "2026-10-11", amount: 8400, payment: "Pending", method: "Cash", status: "Confirmed", lateFee: 0, damageFee: 0 },
-    { id: "RES-1005", customerId: "C001", vehicleId: "V007", pickup: "2026-10-15", returnDate: "2026-10-17", amount: 4200, payment: "Pending", method: "UPI", status: "Pending", lateFee: 0, damageFee: 0 }
+    { id: "RES-1004", customerId: "C001", vehicleId: "V001", bookedOn: "2026-10-06", pickup: "2026-10-07", returnDate: "2026-10-12", amount: 12600, payment: "Paid", method: "UPI", status: "Active", lateFee: 0, damageFee: 0 },
+    { id: "RES-1003", customerId: "C002", vehicleId: "V003", bookedOn: "2026-10-01", pickup: "2026-10-02", returnDate: "2026-10-05", amount: 5400, payment: "Paid", method: "Card", status: "Returned", lateFee: 0, damageFee: 0 },
+    { id: "RES-1002", customerId: "C003", vehicleId: "V002", bookedOn: "2026-10-02", pickup: "2026-10-03", returnDate: "2026-10-06", amount: 6600, payment: "Paid", method: "UPI", status: "Returned", lateFee: 0, damageFee: 0 },
+    { id: "RES-1001", customerId: "C004", vehicleId: "V006", bookedOn: "2026-10-07", pickup: "2026-10-08", returnDate: "2026-10-11", amount: 8400, payment: "Pending", method: "Cash", status: "Confirmed", lateFee: 0, damageFee: 0 },
+    { id: "RES-1005", customerId: "C001", vehicleId: "V007", bookedOn: "2026-10-07", pickup: "2026-10-15", returnDate: "2026-10-17", amount: 4200, payment: "Pending", method: "UPI", status: "Pending", lateFee: 0, damageFee: 0 }
   ],
   maintenance: [
     { id: "M001", vehicleId: "V005", reason: "Regular service and brake inspection", start: "2026-10-07", end: "2026-10-09", cost: 4500, status: "In Progress" }
