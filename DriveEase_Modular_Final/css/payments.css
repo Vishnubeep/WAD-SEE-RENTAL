@@ -1,15 +1,143 @@
-/* Finance page colours. */
-.payment-stats { grid-template-columns: repeat(3, 1fr); }
+/* Finance page colours and layout */
+
+.payment-stats {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 1.5rem;
+
+    margin-bottom: 1.8rem;
+}
+
+.payment-stats .stat-card {
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 1.2rem;
+
+    padding: 1.7rem;
+}
+
+.payment-stats .stat-icon {
+    width: 4rem;
+    height: 4rem;
+
+    display: grid;
+    place-items: center;
+
+    margin-bottom: 1rem;
+
+    border-radius: 0.9rem;
+
+    font-size: 1.8rem;
+}
+
+.payment-stats .stat-label {
+    display: block;
+
+    color: #64748b;
+
+    font-size: 1.15rem;
+
+    margin-bottom: 0.4rem;
+}
+
+.payment-stats .stat-value {
+    display: block;
+
+    color: #0f172a;
+
+    font-size: 2.4rem;
+
+    font-weight: 800;
+
+    line-height: 1.2;
+
+    margin-bottom: 0.4rem;
+}
+
+.payment-stats .stat-description {
+    display: block;
+
+    color: #64748b;
+
+    font-size: 1rem;
+
+    line-height: 1.4;
+}
+
+/* Payment table */
 
 #payment-table th,
 #payment-table td {
-  padding: 1.3rem 1rem;
-  border-bottom: 1px solid #edf1f5;
-  text-align: left;
-  font-size: 1.1rem;
+    padding: 1.3rem 1rem;
+
+    border-bottom: 1px solid #edf1f5;
+
+    text-align: left;
+
+    font-size: 1.1rem;
 }
 
-#payment-table th { color: #64748b; background: #f8fafc; }
+#payment-table th {
+    color: #64748b;
 
-.payment-id { color: #6d28d9; font-weight: 800; }
-.payment-amount { color: #166534; font-weight: 800; }
+    background: #f8fafc;
+
+    font-weight: 700;
+}
+
+#payment-table td {
+    color: #334155;
+}
+
+#payment-table tr:last-child td {
+    border-bottom: 0;
+}
+
+.payment-id {
+    color: #6d28d9;
+
+    font-weight: 800;
+}
+
+.payment-amount {
+    color: #166534;
+
+    font-weight: 800;
+}
+
+.payment-status {
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 0.45rem 0.8rem;
+
+    border-radius: 999px;
+
+    font-size: 1rem;
+
+    font-weight: 700;
+}
+
+.payment-status.paid {
+    background: #dcfce7;
+
+    color: #15803d;
+}
+
+.payment-status.pending {
+    background: #fef3c7;
+
+    color: #b45309;
+}
+
+@media (max-width: 900px) {
+
+    .payment-stats {
+        grid-template-columns: 1fr;
+    }
+}
