@@ -2,71 +2,93 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DriveEase | Payments</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="../css/base.css">
-  <link rel="stylesheet" href="../css/layout.css">
-  <link rel="stylesheet" href="../css/payments.css">
-  <link rel="stylesheet" href="../css/responsive.css">
+    <title>DriveEase | Payments</title>
+
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/payments.css">
+    <link rel="stylesheet" href="../css/responsive.css">
 </head>
 
 <body data-page="payments">
 
-  <div id="app-header"></div>
+    <div id="app-header"></div>
 
-  <div class="app-shell">
-    <div id="app-sidebar"></div>
+    <div class="app-shell">
 
-    <main class="main-content">
+        <div id="app-sidebar"></div>
 
-      <!-- Page header -->
-      <section class="page-header">
-        <div>
-          <span class="eyebrow">FINANCE</span>
-          <h1>Payments</h1>
-          <p>Track rental payments and outstanding balances.</p>
-        </div>
-      </section>
+        <main class="main-content">
 
-      <!-- Payment summary cards -->
-      <section class="stats-grid payment-stats" id="payment-stats"></section>
+            <section class="page-header">
 
-      <!-- Payments table -->
-      <article class="panel">
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Payment</th>
-                <th>Reservation</th>
-                <th>Customer</th>
-                <th>Method</th>
-                <th>Amount</th>
-                <th>Date</th>
-                <th>Status</th>
-                <th></th>
-              </tr>
-            </thead>
+                <div>
+                    <span class="eyebrow">
+                        FINANCE
+                    </span>
 
-            <tbody id="payment-table"></tbody>
-          </table>
-        </div>
-      </article>
+                    <h1>Payments</h1>
 
-    </main>
-  </div>
+                    <p>
+                        Track rental payments and outstanding balances.
+                    </p>
+                </div>
 
-  <div id="modal-root"></div>
-  <div id="toast-root"></div>
+            </section>
 
-  <script src="../js/data.js"></script>
-  <script src="../js/storage.js"></script>
-  <script src="../js/helpers.js"></script>
-  <script src="../js/layout.js"></script>
-  <script src="../js/modals.js"></script>
-  <script src="../js/payments.js"></script>
+            <section
+                class="stats-grid payment-stats"
+                id="payment-stats">
+            </section>
+
+            <article class="panel">
+
+                <div class="table-wrap">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Payment</th>
+                                <th>Reservation</th>
+                                <th>Customer</th>
+                                <th>Method</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th></th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="payment-table">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </article>
+
+        </main>
+
+    </div>
+
+    <div id="modal-root"></div>
+
+    <div id="toast-root"></div>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/helpers.js"></script>
+    <script src="../js/layout.js"></script>
+    <script src="../js/modals.js"></script>
+    <script src="../js/payments.js"></script>
+
 </body>
 
 </html>

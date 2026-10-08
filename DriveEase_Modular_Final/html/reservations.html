@@ -2,85 +2,113 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DriveEase | Reservations</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="../css/base.css">
-  <link rel="stylesheet" href="../css/layout.css">
-  <link rel="stylesheet" href="../css/reservations.css">
-  <link rel="stylesheet" href="../css/responsive.css">
+    <title>DriveEase | Reservations</title>
+
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/reservations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
 </head>
 
 <body data-page="reservations">
 
-  <div id="app-header"></div>
+    <div id="app-header"></div>
 
-  <div class="app-shell">
-    <div id="app-sidebar"></div>
+    <div class="app-shell">
 
-    <main class="main-content">
+        <div id="app-sidebar"></div>
 
-      <!-- Page header -->
-      <section class="page-header">
-        <div>
-          <span class="eyebrow">RENTAL OPERATIONS</span>
-          <h1>Reservations</h1>
-          <p>Approve bookings, start rentals and monitor upcoming returns.</p>
-        </div>
+        <main class="main-content">
 
-        <button class="btn primary" data-action="new-reservation">+ New Reservation</button>
-      </section>
+            <section class="page-header">
 
-      <!-- Search and filter -->
-      <div class="toolbar">
-        <input id="reservation-search" type="search" placeholder="Search reservation, customer or vehicle...">
+                <div>
+                    <span class="eyebrow">
+                        RENTAL OPERATIONS
+                    </span>
 
-        <select id="reservation-status">
-          <option>All Status</option>
-          <option>Pending</option>
-          <option>Confirmed</option>
-          <option>Active</option>
-          <option>Returned</option>
-          <option>Cancelled</option>
-        </select>
-      </div>
+                    <h1>Reservations</h1>
 
-      <!-- Reservations table -->
-      <article class="panel">
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Reservation</th>
-                <th>Customer</th>
-                <th>Vehicle</th>
-                <th>Pickup</th>
-                <th>Return</th>
-                <th>Amount</th>
-                <th>Payment</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </thead>
+                    <p>
+                        Approve bookings, start rentals and monitor upcoming returns.
+                    </p>
+                </div>
 
-            <tbody id="reservation-table"></tbody>
-          </table>
-        </div>
-      </article>
+                <button
+                    class="btn primary"
+                    data-action="new-reservation">
+                    + New Reservation
+                </button>
 
-    </main>
-  </div>
+            </section>
 
-  <div id="modal-root"></div>
-  <div id="toast-root"></div>
+            <div class="toolbar">
 
-  <script src="../js/data.js"></script>
-  <script src="../js/storage.js"></script>
-  <script src="../js/helpers.js"></script>
-  <script src="../js/layout.js"></script>
-  <script src="../js/modals.js"></script>
-  <script src="../js/reservations.js"></script>
+                <input
+                    id="reservation-search"
+                    type="search"
+                    placeholder="Search reservation, customer or vehicle...">
+
+                <select id="reservation-status">
+                    <option>All Status</option>
+                    <option>Pending</option>
+                    <option>Confirmed</option>
+                    <option>Active</option>
+                    <option>Returned</option>
+                    <option>Cancelled</option>
+                </select>
+
+            </div>
+
+            <article class="panel">
+
+                <div class="table-wrap">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Reservation</th>
+                                <th>Customer</th>
+                                <th>Vehicle</th>
+                                <th>Pickup</th>
+                                <th>Return</th>
+                                <th>Amount</th>
+                                <th>Payment</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="reservation-table">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </article>
+
+        </main>
+
+    </div>
+
+    <div id="modal-root"></div>
+
+    <div id="toast-root"></div>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/storage.js"></script>
+    <script src="../js/helpers.js"></script>
+    <script src="../js/layout.js"></script>
+    <script src="../js/modals.js"></script>
+    <script src="../js/reservations.js"></script>
+
 </body>
 
 </html>
