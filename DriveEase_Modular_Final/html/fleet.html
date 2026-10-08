@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DriveEase | Fleet</title>
+  <link rel="stylesheet" href="../css/base.css"><link rel="stylesheet" href="../css/layout.css"><link rel="stylesheet" href="../css/fleet.css"><link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body data-page="fleet">
+  <div id="app-header"></div><div class="app-shell"><div id="app-sidebar"></div>
+    <main class="main-content">
+      <section class="page-header"><div><span class="eyebrow">FLEET MANAGEMENT</span><h1>Vehicles</h1><p>Monitor every vehicle owned or managed by the company.</p></div><button class="btn primary" data-action="new-vehicle">+ Add Vehicle</button></section>
+      <div class="toolbar"><input id="fleet-search" type="search" placeholder="Search vehicle, plate or type..."><select id="fleet-status"><option>All Status</option><option>Available</option><option>Rented</option><option>Maintenance</option></select></div>
+      <section class="vehicle-grid" id="fleet-list"></section>
+    </main>
+  </div><div id="modal-root"></div><div id="toast-root"></div>
+  <script src="../js/data.js"></script><script src="../js/storage.js"></script><script src="../js/helpers.js"></script><script src="../js/layout.js"></script><script src="../js/modals.js"></script><script src="../js/fleet.js"></script>
+</body>
+</html>
