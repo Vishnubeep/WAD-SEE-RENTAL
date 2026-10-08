@@ -33,6 +33,10 @@ function renderFleet() {
   container.querySelectorAll("[data-service]").forEach(button => button.addEventListener("click", () => openMaintenance(button.dataset.service)));
 }
 
+document.querySelectorAll('[data-action="new-vehicle"]').forEach(button => {
+  button.addEventListener("click", () => openVehicle());
+});
+
 document.getElementById("fleet-search").addEventListener("input", renderFleet);
 document.getElementById("fleet-status").addEventListener("change", renderFleet);
 window.addEventListener("dataChanged", renderFleet);

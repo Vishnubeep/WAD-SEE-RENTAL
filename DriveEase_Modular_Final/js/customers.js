@@ -22,6 +22,15 @@ function renderCustomers() {
   }).join("");
 }
 
+document.querySelectorAll('[data-action="new-customer"]').forEach(button => {
+  button.addEventListener("click", openCustomer);
+});
+
+document.getElementById("customer-table").addEventListener("click", event => {
+  const profileButton = event.target.closest("[data-profile]");
+  if (profileButton) openCustomerProfile(profileButton.dataset.profile);
+});
+
 document.getElementById("customer-search").addEventListener("input", renderCustomers);
 window.addEventListener("dataChanged", renderCustomers);
 renderCustomers();

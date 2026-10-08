@@ -89,47 +89,61 @@ function renderDashboard() {
 /* Revenue chart */
 
 function renderRevenueChart() {
-    const values = [
-        4200,
-        3600,
-        5400,
-        4100,
-        6900,
-        5100,
-        7600
-    ];
+    const range = Number(document.getElementById("revenue-range").value);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const days = Array.from({ length: range }, (_, index) => {
+        const date = new Date(today);
+        date.setDate(today.getDate() - range + index + 1);
+        return date;
+    });
+    const revenueByDate = new Map();
 
-    const days = [
-        "Thu",
-        "Fri",
-        "Sat",
-        "Sun",
-        "Mon",
-        "Tue",
-        "Wed"
-    ];
+    db.reservations
+        .filter(item => item.status === "Returned")
+        .forEach(item => {
+            const revenue = item.amount + (item.lateFee || 0) + (item.damageFee || 0);
+            revenueByDate.set(item.returnDate, (revenueByDate.get(item.returnDate) || 0) + revenue);
+        });
 
-    const max = Math.max(...values);
-
+    const values = days.map(date => {
+        const dateKey = [
+            date.getFullYear(),
+            String(date.getMonth() + 1).padStart(2, "0"),
+            String(date.getDate()).padStart(2, "0")
+        ].join("-");
+        return revenueByDate.get(dateKey) || 0;
+    });
+    const max = Math.max(...values, 1);
     const container = document.getElementById("revenue-chart");
 
     container.innerHTML = values
         .map((value, index) => {
-
-            const height = (value / max) * 100;
+            const date = days[index];
+            const dateLabel = date.toLocaleDateString("en-IN", {
+                day: "2-digit",
+                month: "short"
+            });
+            const label = range === 7
+                ? date.toLocaleDateString("en-IN", { weekday: "short" })
+                : index % 5 === 0 || index === range - 1 ? dateLabel : "";
+            const height = value ? Math.max((value / max) * 100, 2) : 0;
 
             return `
                 <div
                     class="revenue-bar"
                     style="--bar-height: ${height}%"
-                    title="${money(value)}">
+                    title="${formatDate([
+                        date.getFullYear(),
+                        String(date.getMonth() + 1).padStart(2, "0"),
+                        String(date.getDate()).padStart(2, "0")
+                    ].join("-"))}: ${money(value)}"
+                    aria-label="${dateLabel}: ${money(value)}">
 
-                    <strong>
-                        ${money(value)}
-                    </strong>
+                    ${range === 7 ? `<strong>${money(value)}</strong>` : ""}
 
                     <span>
-                        ${days[index]}
+                        ${label}
                     </span>
 
                 </div>
@@ -389,6 +403,10 @@ document
         );
 
     });
+
+document
+    .getElementById("revenue-range")
+    .addEventListener("change", renderRevenueChart);
 
 document
     .querySelectorAll('[data-action="new-vehicle"]')
